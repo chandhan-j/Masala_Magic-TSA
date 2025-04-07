@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve Table</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/icon" href="imgs/Masala Magic.png">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="mainlogo"><img src="imgs/Masala Magic.png" alt="Logo"> Masala Magic</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#our_mission" class="nav-a nav-otherL">Our Mission</a></li>
+                    <li><a href="index.html#our_process" class="nav-a">Our Process</a></li>
+                    <li><a href="index.html#Menu" class="nav-a">Our Menu</a></li>
+                    <li><a href="reservation.html" class="nav-a">Reservation</a></li>
+                    <li><a href="checkout.html" class="nav-a"><img src="imgs/ShoppingCart.png" alt=""></a></li>
+                    <li><a href="References.html" class="nav-a">References</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="content">
+        <div class="container">
+            <!-- Title -->
+            <h1 class="page-title">Reservation</h1>
+
+            <!-- Reservation Form -->
+            <form id="reservation-form" class="reservation-form">
+                <!-- Name -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+                <!-- Date -->
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <!-- Time -->
+                <label for="time">Time(Opening time is 9AM and closing is 11PM):</label>
+                <input type="time" id="time" name="time" required min="09:00" max="23:00">
+
+
+
+                <!-- Number of Guests -->
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" min="1" max="20" required>
+
+                <!-- Contact Info -->
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" placeholder="e.g., 123-456-7890" required>
+
+                <!-- Submit Button -->
+                <button type="submit" id="reserveOrderButton" class="submit-btn">Reserve Now</button>
+
+                <script>
+                    // Adding an event listener to the button
+                    document.getElementById('reserveOrderButton').addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent the form from submitting immediately
+                        window.location.href = 'reservationplaced.html'; // Redirect to the target page
+                    });
+                </script>
+                
+                
+                    
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Masala Magic Company. All rights reserved.</p>
+            <p><a href="index.html">Back to Home</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

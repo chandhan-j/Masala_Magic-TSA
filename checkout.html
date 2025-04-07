@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/icon" href="imgs/Masala Magic.png">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="imgs/Masala Magic.png" alt="Logo"> Masala Magic</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#our_mission" class="nav-a nav-otherL">Our Mission</a></li>
+                    <li><a href="index.html#our_process" class="nav-a">Our Process</a></li>
+                    <li><a href="index.html#our_menu" class="nav-a">Our Menu</a></li>
+                    <li><a href="reservation.html" class="nav-a">Reservation</a></li>
+                    <li><a href="checkout.html" class="nav-a"><img src="imgs/ShoppingCart.png" alt=""></a></li>
+                <ul>    
+            </nav>
+        </div>
+    </header> 
+    <!-- Main Content -->
+ 
+    <form action="/submit-order" method="POST" class="order-form" id="orderForm">
+        <!-- Dynamic Items Will Be Added Here -->
+        <div id="orderItems"></div>
+        
+        <!-- Total Cost -->
+        <div class="total-cost">
+            <label>Total:</label>
+            <span id="totalCost" class="total-price">$0.00</span>
+        </div>
+  <!-- Submit Button -->
+  <button type="submit" id="placeOrderButton" class="submit-btn">Place Order</button>
+
+  <script>
+    // Adding an event listener to the button
+    document.getElementById('placeOrderButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+        window.location.href = 'placeorder.html'; // Redirect to the target page
+    });
+</script>
+
+<!-- Browse for More Button -->
+<button type="button" id="browseMoreButton" class="browse-btn">Browse for Items</button>
+
+<script>
+    // Adding an event listener to the "Place Order" button
+    document.getElementById('placeOrderButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+        window.location.href = 'placeorder.html'; // Redirect to the target page
+    });
+
+    // Adding an event listener to the "Browse for More" button
+    document.getElementById('browseMoreButton').addEventListener('click', function() {
+        window.location.href = 'index.html#Menu'; // Redirect to the menu section
+    });
+</script>
+
+<style>
+    /* Browse for More Button Styles */
+    .browse-btn {
+        padding: 15px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        margin-top: 10px; /* Adds spacing between the buttons */
+    }
+
+    .browse-btn:hover {
+        background-color: #4CAF50;
+        transform: translateY(-3px);
+    }
+</style>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Menu Section */
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+
+        .menu-item-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .menu-item-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        /* Order Form Styles */
+        .order-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .menu-item label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .quantity-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .quantity-input {
+            width: 60px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .total-cost {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            border-top: 2px solid #f1f1f1;
+            padding-top: 20px;
+        }
+
+        .total-price {
+            color: #333;
+        }
+
+        .submit-btn {
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .menu-item-btn {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+
+            .quantity-input {
+                width: 50px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <script>
+        // Cart object to store items and their quantities
+        let cart = [];
+
+        // Function to add items to the cart
+        function addItemToOrder(itemName, itemPrice) {
+            const item = { name: itemName, price: itemPrice, quantity: 1 };
+            const existingItem = cart.find(cartItem => cartItem.name === itemName);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push(item);
+            }
+            updateOrderDisplay();
+        }
+
+        // Function to update the display of the order
+        function updateOrderDisplay() {
+            const orderItemsContainer = document.getElementById("orderItems");
+            const totalCostElement = document.getElementById("totalCost");
+
+            // Clear previous items
+            orderItemsContainer.innerHTML = "";
+
+            let totalCost = 0;
+
+            // Add each item to the order display
+            cart.forEach(item => {
+                const itemDiv = document.createElement("div");
+                itemDiv.classList.add("menu-item");
+
+                const itemLabel = document.createElement("label");
+                itemLabel.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                itemDiv.appendChild(itemLabel);
+
+                // Quantity input
+                const quantityLabel = document.createElement("label");
+                quantityLabel.classList.add("quantity-label");
+                quantityLabel.textContent = "Quantity:";
+
+                const quantityInput = document.createElement("input");
+                quantityInput.type = "number";
+                quantityInput.value = item.quantity;
+                quantityInput.min = 1;
+                quantityInput.classList.add("quantity-input");
+
+                // Update quantity and total cost when changed
+                quantityInput.addEventListener("input", function() {
+                    item.quantity = parseInt(quantityInput.value, 10);
+                    updateOrderDisplay();
+                });
+
+                itemDiv.appendChild(quantityLabel);
+                itemDiv.appendChild(quantityInput);
+                orderItemsContainer.appendChild(itemDiv);
+
+                totalCost += item.price * item.quantity;
+            });
+
+            // Update total cost display
+            totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+        }
+
+        // Add event listeners to menu items
+        document.querySelectorAll(".menu-item-btn").forEach(button => {
+            button.addEventListener("click", function() {
+                const itemName = this.getAttribute("data-item");
+                const itemPrice = parseFloat(this.getAttribute("data-price"));
+                addItemToOrder(itemName, itemPrice);
+            });
+        });
+    </script>
+    <script>
+        // Function to update the display of the order
+        function updateOrderDisplay() {
+            const orderItemsContainer = document.getElementById("orderItems");
+            const totalCostElement = document.getElementById("totalCost");
+    
+            // Clear previous items
+            orderItemsContainer.innerHTML = "";
+    
+            // Retrieve cart from localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let totalCost = 0;
+    
+            // Add each item to the order display
+            cart.forEach(item => {
+                const itemDiv = document.createElement("div");
+                itemDiv.classList.add("menu-item");
+    
+                const itemLabel = document.createElement("label");
+                itemLabel.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                itemDiv.appendChild(itemLabel);
+    
+                // Quantity input
+                const quantityLabel = document.createElement("label");
+                quantityLabel.classList.add("quantity-label");
+                quantityLabel.textContent = "Quantity:";
+    
+                const quantityInput = document.createElement("input");
+                quantityInput.type = "number";
+                quantityInput.value = item.quantity;
+                quantityInput.min = 1;
+                quantityInput.classList.add("quantity-input");
+    
+                // Update quantity and total cost when changed
+                quantityInput.addEventListener("input", function() {
+                    item.quantity = parseInt(quantityInput.value, 10);
+                    // Save updated cart to localStorage
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    updateOrderDisplay();
+                });
+    
+                itemDiv.appendChild(quantityLabel);
+                itemDiv.appendChild(quantityInput);
+                orderItemsContainer.appendChild(itemDiv);
+    
+                totalCost += item.price * item.quantity;
+            });
+    
+            // Update total cost display
+            totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+        }
+    
+        // Call updateOrderDisplay() to initialize the cart on page load
+        window.onload = function() {
+            updateOrderDisplay();
+        };
+    </script>
+<script>
+    // Function to update the display of the order
+    function updateOrderDisplay() {
+        const orderItemsContainer = document.getElementById("orderItems");
+        const totalCostElement = document.getElementById("totalCost");
+
+        // Clear previous items
+        orderItemsContainer.innerHTML = "";
+
+        // Retrieve cart from localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let totalCost = 0;
+
+        // Add each item to the order display
+        cart.forEach((item, index) => {
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("menu-item");
+
+            const itemLabel = document.createElement("label");
+            itemLabel.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+            itemDiv.appendChild(itemLabel);
+
+            // Quantity input
+            const quantityLabel = document.createElement("label");
+            quantityLabel.classList.add("quantity-label");
+            quantityLabel.textContent = "Quantity:";
+
+            const quantityInput = document.createElement("input");
+            quantityInput.type = "number";
+            quantityInput.value = item.quantity;
+            quantityInput.min = 1;
+            quantityInput.classList.add("quantity-input");
+
+            // Update quantity and total cost when changed
+            quantityInput.addEventListener("input", function () {
+                item.quantity = parseInt(quantityInput.value, 10);
+                // Save updated cart to localStorage
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateOrderDisplay();
+            });
+
+            itemDiv.appendChild(quantityLabel);
+            itemDiv.appendChild(quantityInput);
+
+            // Add a remove button
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.classList.add("remove-btn");
+
+            // Remove item from cart and update localStorage
+            removeButton.addEventListener("click", function () {
+                cart.splice(index, 1); // Remove the item from the cart array
+                localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
+                updateOrderDisplay(); // Refresh the cart display
+            });
+
+            itemDiv.appendChild(removeButton);
+            orderItemsContainer.appendChild(itemDiv);
+
+            totalCost += item.price * item.quantity;
+        });
+
+        // Update total cost display
+        totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+    }
+
+    // Call updateOrderDisplay() to initialize the cart on page load
+    window.onload = function () {
+        updateOrderDisplay();
+    };
+</script>
+
+<style>
+    .remove-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .remove-btn:hover {
+        background-color: darkred;
+    }
+
+.order-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 110px; /* Adjust this value to move the form further down */
+}
+
+</style>
+</main>    
+ 
+</body>
+</html>

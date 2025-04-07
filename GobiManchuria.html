@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gobi Manchuria | Masala Magic</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200;400;600;700;800;900;1000&family=Open+Sans:wght@400;700&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="imgs/Masala Magic.png">
+    <meta name="description" content="Learn more about our delicious Gobi Manchuria">
+    <meta name="keywords" content="Gobi Manchuria, Masala Magic, Indian Cuisine">
+    <meta name="author" content="Masala Magic">
+</head>
+<body>
+    <!-- Start Header -->
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="mainlogo"><img src="imgs/Masala Magic.png" alt="Logo"> Masala Magic</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#our_mission" class="nav-a nav-otherL">Our Mission</a></li>
+                    <li><a href="index.html#our_process" class="nav-a">Our Process</a></li>
+                    <li><a href="index.html#Menu" class="nav-a">Our Menu</a></li>
+                    <li><a href="reservation.html" class="nav-a">Reservation</a></li>
+                    <li><a href="checkout.html" class="nav-a"><img src="imgs/ShoppingCart.png" alt=""></a></li>
+                    <li><a href="References.html" class="nav-a">References</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Main Section -->
+    <main>
+        <div class="container">
+            <div class="main-title">Gobi Manchuria</div>
+            <div class="dish-details">
+                <div class="dish-description">
+                    <h2>What is Gobi Manchuria?</h2>
+                    <p>
+                        Gobi Manchuria is a popular Indo-Chinese dish made from crispy fried cauliflower florets tossed in a tangy, spicy, and flavorful sauce. 
+                        This vegetarian delight is perfect as an appetizer or a snack, often enjoyed at parties or gatherings.
+                    </p>
+                    <h2>Ingredients:</h2>
+                    <ul>
+                        <li>Cauliflower (Gobi)</li>
+                        <li>All-purpose flour and cornstarch (for the batter)</li>
+                        <li>Garlic, ginger, and green chilies</li>
+                        <li>Soy sauce, tomato ketchup, and chili sauce</li>
+                        <li>Spring onions (for garnish)</li>
+                    </ul>
+                    <h2>How It's Made:</h2>
+                    <p>
+                        The cauliflower is coated in a spiced batter and deep-fried until crispy. The sauce is prepared separately using garlic, ginger, soy sauce, 
+                        and chili sauce, then combined with the fried cauliflower. Garnished with spring onions, this dish is both flavorful and aromatic.
+                    </p>
+                    <h2>Perfect Pairing:</h2>
+                    <p>
+                        Serve Gobi Manchuria with fried rice, noodles, or enjoy it as a standalone snack.
+                    </p>
+                    <!-- Quantity Controls-->
+                    <h2>Quantity:</h2>
+                    <div class="quantity-container">
+                        <p> Quantity:</p>
+                        <button class="quantity-button" onclick="changeQuantity(-1)">-</button>
+                        <input type="number" id="quantity" value="1" min="1" onchange="updateQuantity()">
+                        <button class="quantity-button" onclick="changeQuantity(1)">+</button>
+                    </div>
+                    <!-- Add to Cart Button -->
+                    <div class="add-to-cart">
+                        <button onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#Menu" class="back-to-menu"><i class="fas fa-arrow-left"></i> Back to Menu</a>
+        </div>
+    </main>
+    <!-- End Main Section -->
+
+    <!-- Start Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Masala Magic. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <script>
+        // Function to change quantity using buttons
+        function changeQuantity(amount) {
+            const quantityInput = document.getElementById('quantity');
+            let currentQuantity = parseInt(quantityInput.value);
+            currentQuantity += amount;
+            if (currentQuantity >= 1) {
+                quantityInput.value = currentQuantity;
+            }
+        }
+
+        // Function to update quantity from input field
+        function updateQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            if (parseInt(quantityInput.value) < 1) {
+                quantityInput.value = 1;
+            }
+        }
+
+        // Add to Cart Function
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value; // Get the quantity from the input field
+            const item = {
+                name: "Gobi Manchuria",
+                price: 7.99, // Example price
+                quantity: parseInt(quantity) // Use the quantity from the input
+            };
+
+            // Get the existing cart from localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Check if the item is already in the cart
+            const existingItem = cart.find(cartItem => cartItem.name === item.name);
+            if (existingItem) {
+                existingItem.quantity += item.quantity; // Increase quantity if item exists
+            } else {
+                cart.push(item); // Otherwise, add the item to the cart
+            }
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert(`${item.quantity} x ${item.name} added to cart!`);
+        }
+    </script>
+
+    <!-- Add to Cart Functionality -->
+    <script>
+        // Cart object to store items and their quantities
+        let cart = [];
+
+        // Function to add items to the cart
+        function addToCart() {
+            const item = {
+                name: "Gobi Manchuria",
+                price: 7.99, // Example price
+                quantity: 1
+            };
+
+            // Check if the item is already in the cart
+            const existingItem = cart.find(cartItem => cartItem.name === item.name);
+            if (existingItem) {
+                existingItem.quantity++; // Increase quantity if item exists
+            } else {
+                cart.push(item); // Otherwise, add the item to the cart
+            }
+
+            updateCartDisplay(); // Update the cart display
+        }
+
+        // Function to update the cart display
+        function updateCartDisplay() {
+            // Clear previous cart items
+            const cartItemsDiv = document.getElementById("cart-items");
+            cartItemsDiv.innerHTML = "";
+
+            // Add each item in the cart to the display
+            cart.forEach(item => {
+                const itemDiv = document.createElement("div");
+                itemDiv.innerHTML = `${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`;
+                cartItemsDiv.appendChild(itemDiv);
+            });
+
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById("cart-total").innerHTML = `Total: $${total.toFixed(2)}`;
+        }
+        </script>
+    <script>
+        // Add to Cart Function
+        function addToCart() {
+            const item = {
+                name: "Gobi Manchuria",
+                price: 7.99, // Example price
+                quantity: 1
+            };
+    
+            // Get the existing cart from localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+            // Check if the item is already in the cart
+            const existingItem = cart.find(cartItem => cartItem.name === item.name);
+            if (existingItem) {
+                existingItem.quantity++; // Increase quantity if item exists
+            } else {
+                cart.push(item); // Otherwise, add the item to the cart
+            }
+    
+            // Save the updated cart back to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert("Gobi Manchuria added to cart!");
+    
+        }
+    </script>
+    <script>
+    // Function to change quantity using the buttons
+    function changeQuantity(amount) 
+    {
+        const quantityInput = document.getElementById('quantity');
+        let currentQuantity = parseInt(quantityInput.value);
+        
+        // Update the quantity with the button press
+        currentQuantity += amount;
+        
+        //Ensure quantity doesn't go below 1
+        if (currentQuantity >= 1) {
+            quantityInput.value = currentQuantity;
+        }
+    }
+    
+    // Function to update quantity based on input field change
+    function updateQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentQuantity = parseInt(quantityInput.value);
+        
+        // Ensure quantity doesn't go below 1
+        if (currentQuantity < 1) {
+            quantityInput.value = 1;
+        }
+    }
+    
+    // Add to Cart Function
+    function addToCart() {
+        const quantity = document.getElementById('quantity').value; // Get the quantity from the input field
+        const item = {
+            name: "Gobi Manchuria",
+            price: 7.99, // Example price
+            quantity: parseInt(quantity) // Use the quantity from the input
+        };
+    
+        // Get the existing cart from localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+        // Check if the item is already in the cart
+        const existingItem = cart.find(cartItem => cartItem.name === item.name);
+        if (existingItem) {
+            existingItem.quantity += item.quantity; // Increase quantity if item exists
+        } else {
+            cart.push(item); // Otherwise, add the item to the cart
+        }
+    
+        // Save the updated cart back to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+    
+        alert(`${item.quantity} ${item.name} added to cart!`);
+    }
+    </script>
+    <style>
+        body {
+    padding-top: 100px;
+}
+</style>
+</body>
+</html> 
+     
+    
+  

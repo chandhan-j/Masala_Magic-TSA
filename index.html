@@ -1,0 +1,314 @@
+<!D<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masala Magic</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200;400;600;700;800;900;1000&family=Open+Sans:wght@400;700&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/-icon" href="imgs/Masala Magic.png">
+    <meta name="description" content="Welcome to Indian Restaurant">
+    <meta name="keywords" content="Enjoy Vegetarian Indian Cuisine">
+    <meta name="author" content="Chandhan Juluru">
+</head>
+<body>
+
+    <body onload="hideLoader()">
+
+        <!-- Loader Video Animation -->
+        <div id="loader">
+            <video autoplay muted playsinline id="loader-video">
+                <source src="imgs/LogoAnimation.mp4" type="video/mp4">
+            </video>
+        </div>
+    
+        <!-- Website Content (Hidden Until Load Completes) -->
+        <div id="content" class="hidden">
+    
+    <!-- Start header -->
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="mainlogo"><img src="imgs/Masala Magic.png" alt="Logo"> Masala Magic</a>
+            <nav>
+                <ul>
+                    <li><a href="#our-mission" class="nav-a nav-otherL">Our Mission</a></li>
+                    <li><a href="#our_process" class="nav-a">Our Process</a></li>
+                    <li><a href="#Menu" class="nav-a">Our Menu</a></li>
+                    <li><a href="reservation.html" class="nav-a">Reservation</a></li>
+                    <li><a href="checkout.html" class="nav-a"><img src="imgs/ShoppingCart.png" alt=""></a></li>
+                    <li><a href="References.html" class="nav-a">References</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- End header -->
+    <!-- Start Landing -->
+   
+    <div class="landing">
+        <div class="video-container">
+            <video autoplay muted loop id="landing-video">
+                <source src="imgs/rotating_food.mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div class="container">
+            <div class="text-content">
+                <h1>Welcome, To Masala Magic</h1>
+                <p>Enjoy Vegetarian Indian Cuisine</p>
+                <p>Team Id: 2043-905</p>
+                <p>Individual Id's: 2043-040, 2043-038, 2043-049, 2043-128, 2043-032</p>
+            </div>
+        </div>
+        <a href="#Menu" class="go-down"><i class="fa-solid fa-angles-down fa-xl"></i></a>
+    </div>
+    
+    <!-- End Landing -->
+      <!-- Start Our Mission -->
+    <!-- Our Mission Section -->
+<section class="mission-section" id="our-mission">
+    <h2 class="main-title">Our Mission</h2>
+
+    <!-- First Mission Box -->
+    <div class="mission-box slide-in left">
+        <div class="mission-image">
+            <img src="imgs/mission-image.png" alt="Mission Image">
+        </div>
+        <div class="mission-text">
+            <h2>Fresh Ingredients from Sustainable Farms</h2>
+            <p>We are committed to using ingredients hand-picked directly from our partner farms, ensuring the highest quality and flavor.</p>
+        </div>
+    </div>
+    
+    <!-- Second Mission Box -->
+    <div class="mission-box slide-in right">
+        <div class="mission-text">
+            <h2>Organic and Sustainable Farming</h2>
+            <p>Our farmers grow products without harmful chemicals, ensuring a healthy and nutritious dining experience.</p>
+        </div>
+        <div class="mission-image">
+            <img src="imgs/sustainability.png" alt="Sustainability Image">
+        </div>
+    </div>
+
+    <!-- Third Mission Box -->
+    <div class="mission-box slide-in left">
+        <div class="mission-image">
+            <img src="imgs/green-future.png" alt="Green Future Image">
+        </div>
+        <div class="mission-text">
+            <h2>Building a Greener Future</h2>
+            <p>Supporting organic farming helps create a sustainable food supply for the future.</p>
+        </div>
+    </div>
+</section>
+        
+    </div>
+    <!-- End Our Code -->
+    <!-- Start Articles -->
+    <div class="spikes"></div>
+    <div class="our-process" id="our_process">
+        <div class="angled-background"></div>
+        <h2 class="main-title">Our Process</h2>
+        
+        <div class="process-container">
+            <div class="process-tabs">
+                <div class="process-tab active" data-tab="farm">Farm-to-Table</div>
+                <div class="process-tab" data-tab="waste">Zero Waste</div>
+                <div class="process-tab" data-tab="inventory">Just-In-Time</div>
+                <div class="process-tab" data-tab="energy">Energy Efficiency</div>
+            </div>
+            
+            <div class="process-content">
+                <div class="process-item show" id="farm">
+                    <img src="imgs/FarmToTable.png" alt="Farm-to-Table">
+                    <div class="process-text">
+                        <h3>Farm-to-Table</h3>
+                        <p>We source the freshest ingredients directly from organic farms, ensuring every dish is full of rich, natural flavors.</p>
+                        <a href="article1.html" class="read-more-button">
+                            <span>Read More</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="process-item" id="waste">
+                    <img src="imgs/ZeroWaste1.png" alt="Zero Waste">
+                    <div class="process-text">
+                        <h3>Zero Waste Cooking</h3>
+                        <p>Every ingredient is used efficiently. Leftovers are composted or repurposed into new, creative dishes.</p>
+                        <a href="article2.html" class="read-more-button">
+                            <span>Read More</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="process-item" id="inventory">
+                    <img src="imgs/JustInTime.png" alt="Just-In-Time">
+                    <div class="process-text">
+                        <h3>Just-In-Time Inventory</h3>
+                        <p>We stock ingredients only when needed, ensuring minimal food waste and peak freshness for all our meals.</p>
+                        <a href="article3.html" class="read-more-button">
+                            <span>Read More</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="process-item" id="energy">
+                    <img src="imgs/EnergyEfficiency.png" alt="Energy Efficiency">
+                    <div class="process-text">
+                        <h3>Energy Efficiency</h3>
+                        <p>Our kitchen runs on state-of-the-art energy-efficient equipment, reducing our carbon footprint while enhancing performance.</p>
+                        <a href="article4.html" class="read-more-button">
+                            <span>Read More</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        document.querySelectorAll(".process-tab").forEach(tab => {
+            tab.addEventListener("click", function() {
+                // Remove active class from all tabs and hide all items
+                document.querySelectorAll(".process-tab").forEach(t => t.classList.remove("active"));
+                document.querySelectorAll(".process-item").forEach(item => {
+                    item.classList.remove("show");
+                    item.style.animation = ""; // Reset animation
+                });
+        
+                // Add active class to the clicked tab
+                this.classList.add("active");
+        
+                // Show the correct content with animation
+                const newItem = document.getElementById(this.dataset.tab);
+                newItem.classList.add("show");
+                newItem.style.animation = "popOut 0.5s ease-out";
+            });
+        });
+        </script>
+        
+        
+        
+        
+           
+    
+<div class="spikes2"></div>
+
+    <!-- End Articles -->
+    <!-- Start Gallery -->
+    <div class="gallery" id="Menu">
+        <h2 class="main-title">Our Menu</h2>
+        <h2 class="h2">Click a dish to learn more!</h2>
+        <div class="collage-menu">
+            <a href="GobiManchuria.html" class="collage-item"><img src="imgs/GobiManchuria.png" alt="Gobi Manchuria"><p>Gobi Manchuria</p></a>
+            <a href="PaneerButterMasala.html" class="collage-item large"><img src="imgs/PaneerButterMasala3.png" alt="Paneer Butter Masala"><p>Paneer Butter Masala</p></a>
+            <a href="GulabJamun.html" class="collage-item"><img src="imgs/GulabJamun1.jpg" alt="Gulab Jamun"><p>Gulab Jamun</p></a>
+            <a href="PaneerBiryani.html" class="collage-item wide"><img src="imgs/PaneerBiryani3.jpg" alt="Paneer Biryani"><p>Paneer Biryani</p></a>
+            <a href="Jalebi.html" class="collage-item"><img src="imgs/Jalebi1.webp" alt="Jalebi"><p>Jalebi</p></a>
+          </div>
+          
+      </div>
+      
+        
+    
+    <!-- End Gallery -->
+
+    <!-- Start Footer -->
+    <footer>
+        <div class="container">
+            <div class="box">
+                <a href="#" class="AK-logo"><img src="imgs/Masala Magic.png" alt="">Masala Magic</a>
+                <ul class="icons">
+                    <li class="facebook"><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li class="twitter"><a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></i></a></li>
+                    <li class="youtube"><a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+                <p>Enjoy Delicious Indian Cuisine</p>
+            </div>
+            <div class="box">
+                <ul>
+                    <li><a href="#Menu">Our Menu</a></li>
+                    <li><a href="#our_process">Our Process</a></li>
+                    <li><a href="#our_mission">Our Mission</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <address>
+                    <div class="line"><i class="fas fa-map-marker-alt fa-fw"></i><span class="info">Pittsburgh / Pennsylvania</span></div>
+                    <div class="line"><i class="far fa-clock fa-fw"></i><span class="info">Business Hours: Everyday From 09:00 AM To 11:00 PM</span></div>
+                    <div class="line"><i class="fas fa-phone-volume fa-fw"></i><div class="phones"><span class="info">(412)***-****</span></div></div>
+                </address>
+            </div>
+    
+        </div>
+        <div class="last-info">
+            <p>I Would Like To Thank <span><a target="_blank">Our Customers</a></span> For Their Continous Support</p>
+            <p>© <span class="currentYear">2024</span> <span>Masala Magic Company</span> All Rights Reserved</p>
+        </div>
+    </footer>
+    <!-- End Footer -->
+     <script src="js/main.js"></script>
+<script>
+window.addEventListener("scroll", function () {
+    document.querySelectorAll(".slide-in").forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+            el.classList.add("show");
+        }
+    });
+});
+</script>
+
+<script>
+    document.querySelectorAll(".process-tab").forEach(tab => {
+        tab.addEventListener("click", function() {
+            document.querySelectorAll(".process-tab").forEach(t => t.classList.remove("active"));
+            document.querySelectorAll(".process-item").forEach(item => item.classList.remove("show"));
+            this.classList.add("active");
+            document.getElementById(this.dataset.tab).classList.add("show");
+        });
+    });
+</script>
+        
+</div> <!-- Closing tag for #content -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!localStorage.getItem("videoPlayed")) {
+            document.getElementById('loader-video').onended = function() {
+                document.getElementById('loader').style.opacity = '0';
+                document.getElementById('content').classList.remove('hidden');
+                document.body.classList.remove("no-scroll");
+                
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
+
+                localStorage.setItem("videoPlayed", "true");
+            };
+        } else {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('content').classList.remove('hidden');
+            document.body.classList.remove("no-scroll");
+        }
+    });
+</script>
+
+<script>
+    window.addEventListener("scroll", function () {
+        document.querySelectorAll(".gallery .box").forEach((el) => {
+            if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                el.classList.add("show");
+            }
+        });
+    });
+</script>
+
+
+</body>
+
+
+</body>
+</html>
+
+
